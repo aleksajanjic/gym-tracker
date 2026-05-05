@@ -1,0 +1,5 @@
+@mixin card-surface {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
