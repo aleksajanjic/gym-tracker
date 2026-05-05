@@ -1,3 +1,13 @@
 .navigation {
-  background-color: red;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 24px 0;
+
+  .nav-item {
+    cursor: pointer;
+    border: 1px solid #686A6C;
+    padding: 8px;
+    border-radius: 10px;
+  }
 }

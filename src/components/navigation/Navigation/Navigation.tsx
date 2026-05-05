@@ -26,7 +26,7 @@ function Navigation() {
 	return (
 		<div className="navigation">
 			{tabs.map((tab) => (
-				<div key={tab.id}>{tab.label}</div>
+				<div key={tab.id} className="nav-item">{tab.label}</div>
 			))}
 		</div>
 	);
