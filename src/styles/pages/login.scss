@@ -1,0 +1,55 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  margin: 240px auto;
+  width: 50%;
+  height: 24vh;
+  align-items: center;
+  justify-content: space-evenly;
+  background: var(--bg);
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--focus);
+      box-shadow: 0 0 0 2px rgba(122, 162, 255, 0.2);
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: var(--text);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--primary-hover);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  p {
+    color: var(--danger);
+    font-size: 12px;
+    margin: 0;
+  }
+
+}
