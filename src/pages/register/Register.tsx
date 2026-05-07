@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../../lib/supabase/supabaseClient";
+import { Link } from "react-router-dom";
 
 function Register() {
 	const [email, setEmail] = useState("");
@@ -7,29 +8,30 @@ function Register() {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: any) => {
 		e.preventDefault();
 
-		setLoading(true);
-		setError(null);
+		try {
+			setLoading(true);
+			setError(null);
 
-		const { error } = await supabase.auth.signUp({
-			email,
-			password,
-		});
+			const { error } = await supabase.auth.signUp({
+				email,
+				password,
+			});
 
-		if (error) {
-			setError(error.message);
+			if (error) {
+				setError(error.message);
+			}
+		} finally {
 			setLoading(false);
-			return;
 		}
-
-		setLoading(false);
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className="register" onSubmit={handleSubmit}>
 			<input
+				required
 				type="email"
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
@@ -37,6 +39,7 @@ function Register() {
 			/>
 
 			<input
+				required
 				type="password"
 				value={password}
 				onChange={(e) => setPassword(e.target.value)}
@@ -48,6 +51,8 @@ function Register() {
 			</button>
 
 			{error && <p>{error}</p>}
+
+			<Link to="/login">Click here to login</Link>
 		</form>
 	);
 }

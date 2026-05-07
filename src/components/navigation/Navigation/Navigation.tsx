@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLogout } from "../../../hooks/useLogout";
 
 interface TabData {
 	id: string;
@@ -34,6 +35,7 @@ function Navigation() {
 	const [active, setActive] = useState(0);
 
 	const navigate = useNavigate();
+	const logout = useLogout();
 
 	const handleTabChange = (index: number) => {
 		setActive(index);
@@ -51,6 +53,9 @@ function Navigation() {
 					{tab.label}
 				</div>
 			))}
+			<nav>
+				<button onClick={logout}>Logout</button>
+			</nav>
 		</div>
 	);
 }

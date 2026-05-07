@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-// import { supabase } from "@/lib/supabase/supabaseClient";
-// import "./App.css";
+import { supabase } from "./lib/supabase/supabaseClient";
 import Workout from "./components/workout/Workout";
 import Dashboard from "./components/dashboard/Dashboard/Dashboard";
 import Templates from "./components/templates/Templates/Templates";
@@ -14,25 +13,24 @@ function App() {
 	const [session, setSession] = useState<any>(null);
 	const [loading, setLoading] = useState(true);
 
-	// useEffect(() => {
-	// 	supabase.auth.getSession().then(({ data }) => {
-	// 		setSession(data.session);
-	// 		setLoading(false);
-	// 	});
-	// 	const { data: listener } = supabase.auth.onAuthStateChange(
-	// 		(_, session) => {
-	// 			setSession(session);
-	// 		},
-	// 	);
-	// 	return () => {
-	// 		listener.subscription.unsubscribe();
-	// 	};
-	// }, []);
+	useEffect(() => {
+		supabase.auth.getSession().then(({ data }) => {
+			setSession(data.session);
+			setLoading(false);
+		});
+		const { data: listener } = supabase.auth.onAuthStateChange(
+			(_, session) => {
+				setSession(session);
+			},
+		);
+		return () => {
+			listener.subscription.unsubscribe();
+		};
+	}, []);
 
 	if (loading) return null;
 
-	// const isLoggedIn = !!session;
-	const isLoggedIn = false;
+	const isLoggedIn = !!session;
 
 	function ProtectedRoute({ children }: { children: React.ReactElement }) {
 		if (!isLoggedIn) {
