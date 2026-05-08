@@ -4,14 +4,34 @@
   align-items: center;
   padding: 24px 0;
 
-  .nav-item {
+  .logo {
+    font-weight: bold;
+
+    .iron {
+      color: var(--text)
+    }
+
+    .iq {
+      color: var(--primary);
+    }
+  }
+
+  .nav-item,
+  .logout {
     cursor: pointer;
     border: 1px solid #686A6C;
     padding: 8px;
     border-radius: 10px;
 
-    &.selected{
+    &.selected {
       background-color: var(--panel);
+    }
+  }
+
+  .logout {
+    &:hover {
+      border: 1px solid var(--danger);
+      color: var(--danger);
     }
   }
 }

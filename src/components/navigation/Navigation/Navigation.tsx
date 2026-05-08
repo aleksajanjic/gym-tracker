@@ -44,6 +44,10 @@ function Navigation() {
 
 	return (
 		<div className="navigation">
+			<p className="logo">
+				<span className="iron">IRON</span>
+				<span className="iq">IQ</span>
+			</p>
 			{tabs.map((tab, index) => (
 				<div
 					key={tab.id}
@@ -54,7 +58,9 @@ function Navigation() {
 				</div>
 			))}
 			<nav>
-				<button onClick={logout}>Logout</button>
+				<div className="logout" onClick={logout}>
+					Logout
+				</div>
 			</nav>
 		</div>
 	);

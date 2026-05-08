@@ -1,4 +1,12 @@
-.templates-page {
-  display: grid;
-  gap: var(--space-4);
+.templates {
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      float: left;
+      width: fit-content;
+    }
+  }
 }

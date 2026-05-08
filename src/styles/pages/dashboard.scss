@@ -1,4 +1,6 @@
-.dashboard-page {
-  display: grid;
-  gap: var(--space-4);
+.dashboard {
+  h1 {
+    float: left;
+    width: fit-content;
+  }
 }

@@ -178,3 +178,9 @@ join lateral (
   union all
   select 3, 7, case when se.exercise_order = 1 then 62.5 else 22.5 end::numeric, 8.5::numeric
 ) s on true;
+
+alter table public.workout_templates
+add column color text;
+
+alter table public.workout_templates
+add column description text;

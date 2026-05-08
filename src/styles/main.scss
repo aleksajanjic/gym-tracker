@@ -1,12 +1,13 @@
 @use './tokens.scss';
 @use './base.scss';
-/* @import './utilities.scss'; */
+@use './utilities.scss';
 
-/* @import './components/button.scss'; */
-/* @import './components/card.scss'; */
+@use './components/button.scss';
+@use './components/template-card.scss';
 @use './components/navigation.scss';
+@use './components/modal.scss';
 
-/* @import './pages/dashboard.scss'; */
-/* @import './pages/templates.scss'; */
+@use './pages/dashboard.scss';
+@use './pages/templates.scss';
 @use './pages/login.scss';
 @use './pages/register.scss';

@@ -4,4 +4,25 @@
   color: var(--text);
   border-radius: var(--radius-sm);
   padding: var(--space-2) var(--space-4);
+  height: 50px;
+  cursor: pointer;
+
+  &.edit {
+    background-color: white;
+  }
+
+  &.delete {
+    background-color: red;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  border: 1px solid #686A6C;
+  padding: 8px;
+  border-radius: 10px;
+
+  &.selected {
+    background-color: var(--panel);
+  }
 }
