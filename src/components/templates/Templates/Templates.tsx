@@ -4,10 +4,14 @@ import AddSplit from "../../modal/AddSplit";
 import Card from "../../ui/Card";
 import deleteWorkoutTemplate from "../../../services/DeleteWorkoutTemplate";
 import { useQueryClient } from "@tanstack/react-query";
+import EditSplit from "../../modal/EditSplit";
+import type { CardType } from "../../../types/types";
 
 function Templates() {
 	const { data, isLoading, error } = useWorkoutTemplates();
 	const [showModal, setShowModal] = useState(false);
+	const [showEditModal, setShowEditModal] = useState(false);
+	const [card, setCard] = useState<CardType | null>(null);
 	const queryClient = useQueryClient();
 
 	if (isLoading) return <p>Loading...</p>;
@@ -20,13 +24,12 @@ function Templates() {
 		setShowModal((prev) => !prev);
 	};
 
-	const handleEdit = (e: any) => {
-		e.preventDefault();
-		console.log("edit", e);
+	const handleToggleEditModal = (card: CardType) => {
+		setCard(card);
+		setShowEditModal((prev) => !prev);
 	};
 
 	const handleDelete = async (id: string) => {
-		console.log("delete id:", id);
 		await deleteWorkoutTemplate(id);
 
 		await queryClient.invalidateQueries({
@@ -47,7 +50,7 @@ function Templates() {
 					<Card
 						key={card.id}
 						card={card}
-						handleEdit={handleEdit}
+						handleEdit={handleToggleEditModal}
 						handleDelete={handleDelete}
 					/>
 				))}
@@ -61,6 +64,12 @@ function Templates() {
 
 			<div className={`modal ${showModal ? "show" : ""}`}>
 				<AddSplit closeModal={handleToggleModal} />
+			</div>
+
+			<div className={`modal ${showEditModal ? "show" : ""}`}>
+				{showEditModal && card && (
+					<EditSplit closeModal={handleToggleEditModal} card={card} />
+				)}
 			</div>
 		</div>
 	);

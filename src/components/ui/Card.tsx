@@ -1,13 +1,9 @@
-type CardData = {
-	id: string;
-	name: string;
-	description: string;
-};
+import type { CardType } from "../../types/types";
 
 type CardProps = {
-	card: CardData;
+	card: CardType;
 	handleDelete: (id: string) => void;
-	handleEdit: (card: CardData) => void;
+	handleEdit: (card: CardType) => void;
 };
 
 function Card(props: CardProps) {
@@ -20,10 +16,18 @@ function Card(props: CardProps) {
 				<p>{card.description}</p>
 			</div>
 			<div className="btn-wrapper">
-				<button type="button" className="btn edit" onClick={() => handleEdit(card)}>
+				<button
+					type="button"
+					className="btn edit"
+					onClick={() => handleEdit(card)}
+				>
 					edit
 				</button>
-				<button type="button" className="btn delete" onClick={() => handleDelete(card.id)}>
+				<button
+					type="button"
+					className="btn delete"
+					onClick={() => handleDelete(card.id)}
+				>
 					delete
 				</button>
 			</div>
