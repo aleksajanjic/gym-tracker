@@ -12,17 +12,28 @@
   }
 
   &.delete {
-    background-color: red;
+    background-color: blue;
   }
 }
 
 .btn {
   cursor: pointer;
-  border: 1px solid #686A6C;
   padding: 8px;
-  border-radius: 10px;
+  height: 30px;
+  border: 1px solid #686A6C;
+  border-radius: 3px;
+  width: 100px;
 
   &.selected {
     background-color: var(--panel);
+  }
+
+  &.edit {
+    background-color: transparent;
+  }
+
+  &.delete {
+    background-color: var(--danger);
+    color: var(--bg);
   }
 }

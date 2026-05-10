@@ -23,7 +23,7 @@ function Card(props: CardProps) {
 				<button type="button" className="btn edit" onClick={() => handleEdit(card)}>
 					edit
 				</button>
-				<button type="button" className="button delete" onClick={() => handleDelete(card.id)}>
+				<button type="button" className="btn delete" onClick={() => handleDelete(card.id)}>
 					delete
 				</button>
 			</div>
